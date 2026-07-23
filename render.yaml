@@ -12,8 +12,14 @@ services:
       - key: ADMIN_PASSWORD
         sync: false
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: modicar-db
+          property: connectionString
       - key: MODICAR_WHATSAPP
         value: "573138494513"
       - key: MODICAR_ADDRESS
         value: "Carrera 29 #33-34, Centro de Palmira, Valle del Cauca"
+
+databases:
+  - name: modicar-db
+    plan: free
