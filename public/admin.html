@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <title>Administrar citas | MODICAR</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <section id="loginView" class="login-card">
+      <img class="admin-logo" src="/logo-modicar.png" alt="MODICAR Estética Automotriz">
+      <p class="eyebrow">MODICAR</p>
+      <h1>Panel de citas</h1>
+      <p style="color:var(--muted)">Ingresa la clave administrativa para revisar y gestionar las solicitudes.</p>
+      <form id="loginForm">
+        <label class="field">
+          <span>Clave de administrador</span>
+          <input id="password" type="password" autocomplete="current-password" required>
+        </label>
+        <div id="loginError" class="error-box" hidden></div>
+        <button class="button primary" type="submit">Ingresar</button>
+      </form>
+      <a href="/" style="display:block;margin-top:16px;color:var(--muted);text-align:center">Volver a la agenda</a>
+    </section>
+
+    <section id="dashboardView" hidden>
+      <header class="admin-top">
+        <div class="admin-heading-brand">
+          <img class="admin-logo compact" src="/logo-modicar.png" alt="MODICAR Estética Automotriz">
+          <div>
+            <p class="eyebrow">ADMINISTRACIÓN</p>
+            <h1>Citas MODICAR</h1>
+            <p>Carrera 29 #33-34 · Centro de Palmira · 313 849 4513</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button id="exportButton" class="button secondary" type="button">Exportar CSV</button>
+          <button id="logoutButton" class="button secondary" type="button">Cerrar sesión</button>
+        </div>
+      </header>
+
+      <div class="admin-stats">
+        <article class="stat-card"><span>Pendientes</span><strong id="statPending">0</strong></article>
+        <article class="stat-card"><span>Confirmadas</span><strong id="statConfirmed">0</strong></article>
+        <article class="stat-card"><span>Completadas</span><strong id="statCompleted">0</strong></article>
+        <article class="stat-card"><span>Total</span><strong id="statTotal">0</strong></article>
+      </div>
+
+      <div class="admin-toolbar">
+        <div class="filters">
+          <input id="searchFilter" type="search" placeholder="Buscar cliente, placa o código">
+          <select id="statusFilter">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendientes</option>
+            <option value="confirmada">Confirmadas</option>
+            <option value="completada">Completadas</option>
+            <option value="cancelada">Canceladas</option>
+          </select>
+          <input id="dateFilter" type="date">
+        </div>
+        <button id="refreshButton" class="button secondary" type="button">Actualizar</button>
+      </div>
+
+      <div id="adminError" class="error-box" hidden></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th><th>Estado</th><th>Cliente</th><th>Vehículo</th><th>Servicio</th><th>Contacto</th><th>Notas</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" hidden>No hay citas que coincidan con los filtros.</div>
+      </div>
+    </section>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>
