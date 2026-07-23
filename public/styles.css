@@ -284,14 +284,25 @@ td strong { color: var(--text); }
   h1 { font-size: 3.05rem; }
   .hero-actions .button { width: 100%; }
   .trust-row { flex-direction: column; gap: 7px; }
-  .hero-visual { min-height: 370px; padding: 58px 20px 100px; }
+  .hero-visual {
+    min-height: auto;
+    padding: 42px 20px 20px;
+    gap: 20px;
+  }
   .hero-brand-logo { max-height: 220px; }
-  .hero-card { right: 14px; bottom: 14px; }
+  .hero-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    z-index: 2;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px;
+  }
   .car-silhouette { bottom: 36px; height: 150px; }
   .car-body { height: 88px; }
   .car-roof { height: 64px; }
   .wheel { width: 62px; height: 62px; }
-  .hero-card { width: 170px; padding: 14px; }
   .services-section, .location-section, .booking-section { padding-block: 72px; }
   .services-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 150px; }
